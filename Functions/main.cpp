@@ -22,7 +22,7 @@ void Print(int arr[], const int n)
 
 }
 
-void Shift(int arr[], const int n, const int shift)
+void ShiftLeft(int arr[], const int n, const int shift)
 {
 	for (int i = 0; i < shift; i++)
 	{
@@ -53,7 +53,7 @@ void main()
 	int shift;
 	cout << "¬ведите количество сдвигов: "; cin >> shift; cout << endl;
 
-	Shift(arr, n, shift);
+	ShiftLeft(arr, n, shift);
 	cout << endl;
 	Print(arr, n);
 
@@ -70,7 +70,7 @@ void main()
 
 	cout << "¬ведите количество сдвигов: "; cin >> shift; cout << endl;
 
-	Shift(brr, m, shift);
+	ShiftLeft(brr, m, shift);
 	cout << endl;
 	Print(brr, m);
 }
