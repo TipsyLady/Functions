@@ -142,20 +142,16 @@ void main()
 	cout << endl;
 	cout << stop << endl;
 
-	int Res = Sum(arr, n);
-	cout << "Сумма чисел в массиве " << Res << endl;
+	cout << "Сумма чисел в массиве " << Sum(arr, n) << endl;
 	cout << stop << endl;
 
-	double Res2 = Avr(arr, n);
-	cout << "Среднее арифмитическое значение массива: " << Res2 << endl;
+	cout << "Среднее арифмитическое значение массива: " << Avr(arr, n) << endl;
 	cout << stop << endl;
 	
-	int Res3 = MaxValue(arr, n);
-	cout << "Максимальное значение в массиве: " << Res3 << endl;
+	cout << "Максимальное значение в массиве: " << MaxValue(arr, n) << endl;
 	cout << stop << endl;
 
-	int Res4 = MinValue(arr, n);
-	cout << "Минимальное значение в массиве: " << Res4 << endl;
+	cout << "Минимальное значение в массиве: " << MinValue(arr, n) << endl;
 	cout << stop << endl;
 	
 	cout << "Сортировка массива по возрастанию: " << endl;
