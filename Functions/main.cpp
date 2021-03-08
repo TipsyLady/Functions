@@ -79,13 +79,7 @@ int Sum(int arr[], const int n)
 
 double Avr(int arr[], const int n)
 {
-	double sum = 0;
-
-	for (int i = 0; i < n; i++)
-	{
-		sum += arr[i];
-	}
-	double Average = sum / n;
+	double Average = (double) Sum (arr, n) / n;
 	return Average;
 }
 
