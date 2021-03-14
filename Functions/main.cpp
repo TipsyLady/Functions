@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 using namespace std;
 #define tab "\t"
 #define stop "-----------------------------------------------"
@@ -9,7 +9,7 @@ void FillRand(int arr[], const int n)
 	{
 
 		arr[i] = rand()%10;
-		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
+		// С„СѓРЅРєС†РёСЏ rand() РІРѕР·РІСЂР°С‰Р°РµС‚ РїСЃРµРІРґРѕСЃР»СѓС‡Р°Р№РЅРѕРµ С‡РёСЃР»Рѕ РІ РґРёР°РїР°Р·РѕРЅРµ РѕС‚ 0 РґРѕ 32 767
 	}
 }
 
@@ -117,38 +117,38 @@ void main()
 	int arr[n]; 
 	FillRand(arr, n);
 	cout << endl;
-	cout << "Вывод массива: " << endl;
+	cout << "Р’С‹РІРѕРґ РјР°СЃСЃРёРІР°: " << endl;
 	Print(arr, n);
 	
 	cout << endl;
 	int shift;
-	cout << "Введите количество сдвигов: "; cin >> shift; cout << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃРґРІРёРіРѕРІ: "; cin >> shift; cout << endl;
 
-	//cout << "Смещение значений массива влево: " << endl;
+	//cout << "РЎРјРµС‰РµРЅРёРµ Р·РЅР°С‡РµРЅРёР№ РјР°СЃСЃРёРІР° РІР»РµРІРѕ: " << endl;
 	////ShiftLeft(arr, n, shift);
 	////cout << endl;
 	////Print(arr, n);
 
-	cout << "Смещение значений массива вправо: " << endl;
+	cout << "РЎРјРµС‰РµРЅРёРµ Р·РЅР°С‡РµРЅРёР№ РјР°СЃСЃРёРІР° РІРїСЂР°РІРѕ: " << endl;
 	ShiftRight(arr, n, shift);
 	cout << endl;
 	Print(arr, n);
 	cout << endl;
 	cout << stop << endl;
 
-	cout << "Сумма чисел в массиве " << Sum(arr, n) << endl;
+	cout << "РЎСѓРјРјР° С‡РёСЃРµР» РІ РјР°СЃСЃРёРІРµ " << Sum(arr, n) << endl;
 	cout << stop << endl;
 
-	cout << "Среднее арифмитическое значение массива: " << Avr(arr, n) << endl;
+	cout << "РЎСЂРµРґРЅРµРµ Р°СЂРёС„РјРёС‚РёС‡РµСЃРєРѕРµ Р·РЅР°С‡РµРЅРёРµ РјР°СЃСЃРёРІР°: " << Avr(arr, n) << endl;
 	cout << stop << endl;
 	
-	cout << "Максимальное значение в массиве: " << MaxValue(arr, n) << endl;
+	cout << "РњР°РєСЃРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ РјР°СЃСЃРёРІРµ: " << MaxValue(arr, n) << endl;
 	cout << stop << endl;
 
-	cout << "Минимальное значение в массиве: " << MinValue(arr, n) << endl;
+	cout << "РњРёРЅРёРјР°Р»СЊРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІ РјР°СЃСЃРёРІРµ: " << MinValue(arr, n) << endl;
 	cout << stop << endl;
 	
-	cout << "Сортировка массива по возрастанию: " << endl;
+	cout << "РЎРѕСЂС‚РёСЂРѕРІРєР° РјР°СЃСЃРёРІР° РїРѕ РІРѕР·СЂР°СЃС‚Р°РЅРёСЋ: " << endl;
 	Sort(arr, n);
 	cout << endl;
 	Print(arr, n);
