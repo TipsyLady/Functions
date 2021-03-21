@@ -49,6 +49,8 @@ double MinValue(double arr[], const int n);
 float MinValue(float arr[], const int n);
 char MinValue(char arr[], const int n);
 
+void UnicRandom(int arr[], const int n, int minRand = 50, int maxRand = 100);
+
 void main()
 
 {
@@ -57,8 +59,9 @@ void main()
 	cout << "Hello Functions" << endl;
 
 	const int n = 5;
-	float arr[n]; 
-	FillRand(arr, n);
+	int arr[n]; 
+	srand(time(NULL));
+	UnicRandom(arr, n);
 	cout << endl;
 	cout << "Вывод массива: " << endl;
 	Print(arr, n);
@@ -537,4 +540,11 @@ char MinValue(char arr[], const int n)
 	return min;
 }
 
+void UnicRandom(int arr[], const int n, int minRand, int maxRand)
+{
+	for (int i = 0; i < n; i++)
+	{
 
+		arr[i] = minRand + rand()% maxRand;
+	}
+}
