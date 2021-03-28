@@ -1,23 +1,14 @@
-﻿#include <iostream>
+﻿#include "Print.h"
+#include "Shifts.h"
+#include "Sort.h"
+#include "Statistic.h"
+#include "Fillrand.h"
+#include "UnicRand.h"
+#include<iostream>
+
 using namespace std;
 #define tab "\t"
 #define stop "-----------------------------------------------"
-
-void FillRand(int arr[], const int n, int minRand=0, int maxRand=10);
-void FillRand(double arr[], const int n, int minRand=0, int maxRand=10);
-void FillRand(float arr[], const int n, int minRand = 0, int maxRand = 10);
-void FillRand(char arr[], const int n, int minRand=0, int maxRand=10);
-
-template<typename T>void Print(T arr[], const int n);
-template<typename T>void ShiftLeft(T arr[], const int n, const int shift);
-template<typename T>void ShiftRight(T arr[], const int n, const int shift);
-template<typename T>void Sort(T arr[], const int n);
-template<typename T>T Sum(T arr[], const int n);
-template<typename T>double Avr(T arr[], const int n);
-template<typename T>T MaxValue(T arr[], const int n);
-template<typename T>T MinValue(T arr[], const int n);
-
-void UnicRandom(int arr[], const int n, int minRand = 50, int maxRand = 100);
 
 void main()
 
@@ -27,7 +18,7 @@ void main()
 	cout << "Hello Functions" << endl;
 
 	const int n = 5;
-	int arr[n]; 
+	char arr[n]; 
 	srand(time(NULL));
 	UnicRandom(arr, n);
 	cout << endl;
@@ -68,52 +59,9 @@ void main()
 	Print(arr, n);
 }
 
-void FillRand(int arr[], const int n, int minRand, int maxRand)
-{
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = rand() % (maxRand-minRand)+minRand;
-		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
-	}
-}
-void FillRand(double arr[], const int n, int minRand, int maxRand)
-{
-	minRand *= 100;
-	maxRand *= 100;
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = rand() % (maxRand - minRand) + minRand;
-		arr[i] /= 100;
-		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
-	}
-}
-void FillRand(float arr[], const int n, int minRand, int maxRand)
-{
-	minRand *= 100;
-	maxRand *= 100;
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = rand() % (maxRand - minRand) + minRand;
-		arr[i] /= 100;
-		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
-	}
-}
-void FillRand(char arr[], const int n, int minRand, int maxRand)
-{
-	minRand *= 100;
-	maxRand *= 100;
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = rand() % (maxRand - minRand) + minRand;
-		arr[i] /= 100;
-		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
-	}
-}
-
+//на этапе компановки выдает ошибку "unresolved externals" и "unresolved external symbol" 
+//пыталась добавить файл include "Print.cpp" в конец кода в файле "Print.h", выпадала другая ошибка
+//Вопрос- получается реализацию шаблона нельзя отдельно вывести в файл .cpp?
 template<typename T>void Print(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
@@ -122,6 +70,21 @@ template<typename T>void Print(T arr[], const int n)
 	}
 	cout << endl;
 
+}
+template<typename T>void Sort (T arr[], const int n)
+{
+	for (int i = 1; i < n; i++)
+	{
+		T tmp = arr[i];
+		T k = i - 1;
+
+		while (k >= 0 && arr[k] > tmp)
+		{
+			arr[k + 1] = arr[k];
+			arr[k] = tmp;
+			k--;
+		}
+	}
 }
 template<typename T>void ShiftLeft(T arr[], const int n, const int shift)
 {
@@ -147,21 +110,6 @@ template<typename T>void ShiftRight(T arr[], const int n, const int shift)
 		}
 		arr[0] = buffer;
 
-	}
-}
-template<typename T>void Sort(T arr[], const int n)
-{
-	for (int i = 1; i < n; i++)
-	{
-		T tmp = arr[i];
-		T k = i - 1;
-
-		while (k >= 0 && arr[k] > tmp)
-		{
-			arr[k + 1] = arr[k];
-			arr[k] = tmp;
-			k--;
-		}
 	}
 }
 template<typename T>T Sum(T arr[], const int n)
@@ -198,15 +146,6 @@ template<typename T>T MinValue(T arr[], const int n)
 		if (min > arr[i]) min = arr[i];
 	}
 	return min;
-}
-
-void UnicRandom(int arr[], const int n, int minRand, int maxRand)
-{
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = minRand + rand()% maxRand;
-	}
 }
 
 //void Sort_2(int arr[], const int n)
