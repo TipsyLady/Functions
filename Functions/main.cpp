@@ -2,52 +2,20 @@
 using namespace std;
 #define tab "\t"
 #define stop "-----------------------------------------------"
+
 void FillRand(int arr[], const int n, int minRand=0, int maxRand=10);
 void FillRand(double arr[], const int n, int minRand=0, int maxRand=10);
 void FillRand(float arr[], const int n, int minRand = 0, int maxRand = 10);
 void FillRand(char arr[], const int n, int minRand=0, int maxRand=10);
 
-void Print(int arr[], const int n);
-void Print(double arr[], const int n);
-void Print(float arr[], const int n);
-void Print(char arr[], const int n);
-
-void ShiftLeft(int arr[], const int n, const int shift);
-void ShiftLeft(double arr[], const int n, const int shift);
-void ShiftLeft(float arr[], const int n, const int shift);
-void ShiftLeft(char arr[], const int n, const int shift);
-
-void ShiftRight(int arr[], const int n, const int shift);
-void ShiftRight(double arr[], const int n, const int shift);
-void ShiftRight(float arr[], const int n, const int shift);
-void ShiftRight(char arr[], const int n, const int shift);
-
-void Sort(int arr[], const int n);
-void Sort(double arr[], const int n);
-void Sort(float arr[], const int n);
-void Sort(char arr[], const int n);
-
-//void Sort_2(int arr[], const int n);
-
-int Sum(int arr[], const int n);
-double Sum(double arr[], const int n);
-float Sum(float arr[], const int n);
-char Sum(char arr[], const int n);
-
-double Avr(int arr[], const int n);
-double Avr(double arr[], const int n);
-float Avr(float arr[], const int n);
-char Avr(char arr[], const int n);
-
-int MaxValue(int arr[], const int n);
-double MaxValue(double arr[], const int n);
-float MaxValue(float arr[], const int n);
-char MaxValue(char arr[], const int n);
-
-int MinValue(int arr[], const int n);
-double MinValue(double arr[], const int n);
-float MinValue(float arr[], const int n);
-char MinValue(char arr[], const int n);
+template<typename T>void Print(T arr[], const int n);
+template<typename T>void ShiftLeft(T arr[], const int n, const int shift);
+template<typename T>void ShiftRight(T arr[], const int n, const int shift);
+template<typename T>void Sort(T arr[], const int n);
+template<typename T>T Sum(T arr[], const int n);
+template<typename T>double Avr(T arr[], const int n);
+template<typename T>T MaxValue(T arr[], const int n);
+template<typename T>T MinValue(T arr[], const int n);
 
 void UnicRandom(int arr[], const int n, int minRand = 50, int maxRand = 100);
 
@@ -109,7 +77,6 @@ void FillRand(int arr[], const int n, int minRand, int maxRand)
 		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
 	}
 }
-
 void FillRand(double arr[], const int n, int minRand, int maxRand)
 {
 	minRand *= 100;
@@ -122,7 +89,6 @@ void FillRand(double arr[], const int n, int minRand, int maxRand)
 		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
 	}
 }
-
 void FillRand(float arr[], const int n, int minRand, int maxRand)
 {
 	minRand *= 100;
@@ -135,7 +101,6 @@ void FillRand(float arr[], const int n, int minRand, int maxRand)
 		// функция rand() возвращает псевдослучайное число в диапазоне от 0 до 32 767
 	}
 }
-
 void FillRand(char arr[], const int n, int minRand, int maxRand)
 {
 	minRand *= 100;
@@ -149,7 +114,7 @@ void FillRand(char arr[], const int n, int minRand, int maxRand)
 	}
 }
 
-void Print(int arr[], const int n)
+template<typename T>void Print(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -158,42 +123,11 @@ void Print(int arr[], const int n)
 	cout << endl;
 
 }
-
-void Print(double arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-
-}
-
-void Print(float arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-
-}
-
-void Print(char arr[], const int n)
-{
-	for (int i = 0; i < n; i++)
-	{
-		cout << arr[i] << tab;
-	}
-	cout << endl;
-
-}
-
-void ShiftLeft(int arr[], const int n, const int shift)
+template<typename T>void ShiftLeft(T arr[], const int n, const int shift)
 {
 	for (int i = 0; i < shift; i++)
 	{
-		int buffer = arr[0];
+		T buffer = arr[0];
 		for (int j = 0; j < n; j++)
 		{
 			arr[j] = arr[j + 1];
@@ -202,54 +136,11 @@ void ShiftLeft(int arr[], const int n, const int shift)
 
 	}
 }
-
-void ShiftLeft(double arr[], const int n, const int shift)
+template<typename T>void ShiftRight(T arr[], const int n, const int shift)
 {
 	for (int i = 0; i < shift; i++)
 	{
-		double buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-
-	}
-}
-
-void ShiftLeft(float arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		float buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-
-	}
-}
-
-void ShiftLeft(char arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		char buffer = arr[0];
-		for (int j = 0; j < n; j++)
-		{
-			arr[j] = arr[j + 1];
-		}
-		arr[n - 1] = buffer;
-
-	}
-}
-
-void ShiftRight(int arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		int buffer = arr[n - 1];
+		T buffer = arr[n - 1];
 		for (int j = n - 1; j > 0; j--)
 		{
 			arr[j] = arr[j - 1];
@@ -258,55 +149,12 @@ void ShiftRight(int arr[], const int n, const int shift)
 
 	}
 }
-
-void ShiftRight(double arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		double buffer = arr[n - 1];
-		for (int j = n - 1; j > 0; j--)
-		{
-			arr[j] = arr[j - 1];
-		}
-		arr[0] = buffer;
-
-	}
-}
-
-void ShiftRight(float arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		float buffer = arr[n - 1];
-		for (int j = n - 1; j > 0; j--)
-		{
-			arr[j] = arr[j - 1];
-		}
-		arr[0] = buffer;
-
-	}
-}
-
-void ShiftRight(char arr[], const int n, const int shift)
-{
-	for (int i = 0; i < shift; i++)
-	{
-		char buffer = arr[n - 1];
-		for (int j = n - 1; j > 0; j--)
-		{
-			arr[j] = arr[j - 1];
-		}
-		arr[0] = buffer;
-
-	}
-}
-
-void Sort(int arr[], const int n)
+template<typename T>void Sort(T arr[], const int n)
 {
 	for (int i = 1; i < n; i++)
 	{
-		int tmp = arr[i];
-		int k = i - 1;
+		T tmp = arr[i];
+		T k = i - 1;
 
 		while (k >= 0 && arr[k] > tmp)
 		{
@@ -316,52 +164,48 @@ void Sort(int arr[], const int n)
 		}
 	}
 }
-
-void Sort(double arr[], const int n)
+template<typename T>T Sum(T arr[], const int n)
 {
+	T Sum = 0;
+	for (int i = 0; i < n; i++)
+	{
+		Sum += arr[i];
+	}
+	return Sum;
+}
+template<typename T>double Avr(T arr[], const int n)
+{
+	/*double Average = (double)Sum(arr, n) / n;
+	return Average;*/
+	return (double) Sum(arr, n) / n;
+}
+template<typename T>T MaxValue(T arr[], const int n)
+{
+	T max = arr[0];
+
 	for (int i = 1; i < n; i++)
 	{
-		double tmp = arr[i];
-		int k = i - 1;
-
-		while (k >= 0 && arr[k] > tmp)
-		{
-			arr[k + 1] = arr[k];
-			arr[k] = tmp;
-			k--;
-		}
+		if (max < arr[i]) max = arr[i];
 	}
+	return max;
+}
+template<typename T>T MinValue(T arr[], const int n)
+{
+	T min = arr[0];
+
+	for (int i = 1; i < n; i++)
+	{
+		if (min > arr[i]) min = arr[i];
+	}
+	return min;
 }
 
-void Sort(float arr[], const int n)
+void UnicRandom(int arr[], const int n, int minRand, int maxRand)
 {
-	for (int i = 1; i < n; i++)
+	for (int i = 0; i < n; i++)
 	{
-		float tmp = arr[i];
-		int k = i - 1;
 
-		while (k >= 0 && arr[k] > tmp)
-		{
-			arr[k + 1] = arr[k];
-			arr[k] = tmp;
-			k--;
-		}
-	}
-}
-
-void Sort(char arr[], const int n)
-{
-	for (int i = 1; i < n; i++)
-	{
-		char tmp = arr[i];
-		int k = i - 1;
-
-		while (k >= 0 && arr[k] > tmp)
-		{
-			arr[k + 1] = arr[k];
-			arr[k] = tmp;
-			k--;
-		}
+		arr[i] = minRand + rand()% maxRand;
 	}
 }
 
@@ -383,168 +227,4 @@ void Sort(char arr[], const int n)
 //
 //	}
 //}
-
-int Sum(int arr[], const int n)
-{
-	int Sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		Sum += arr[i];
-	}
-	return Sum;
-}
-
-double Sum(double arr[], const int n)
-{
-	double Sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		Sum += arr[i];
-	}
-	return Sum;
-}
-
-float Sum(float arr[], const int n)
-{
-	float Sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		Sum += arr[i];
-	}
-	return Sum;
-}
-
-char Sum(char arr[], const int n)
-{
-	char Sum = 0;
-	for (int i = 0; i < n; i++)
-	{
-		Sum += arr[i];
-	}
-	return Sum;
-}
-
-double Avr(int arr[], const int n)
-{
-	/*double Average = (double)Sum(arr, n) / n;
-	return Average;*/
-	return (double) Sum(arr, n) / n;
-}
-
-double Avr(double arr[], const int n)
-{
-	/*double Average = (double)Sum(arr, n) / n;
-	return Average;*/
-	return (double)Sum(arr, n) / n;
-}
-
-float Avr(float arr[], const int n)
-{
-	/*double Average = (double)Sum(arr, n) / n;
-	return Average;*/
-	return (float)Sum(arr, n) / n;
-}
-
-char Avr(char arr[], const int n)
-{
-	/*double Average = (double)Sum(arr, n) / n;
-	return Average;*/
-	return (char)Sum(arr, n) / n;
-}
-
-int MaxValue(int arr[], const int n)
-{
-	int max = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (max < arr[i]) max = arr[i];
-	}
-	return max;
-}
-
-double MaxValue(double arr[], const int n)
-{
-	double max = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (max < arr[i]) max = arr[i];
-	}
-	return max;
-}
-
-float MaxValue(float arr[], const int n)
-{
-	float max = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (max < arr[i]) max = arr[i];
-	}
-	return max;
-}
-
-char MaxValue(char arr[], const int n)
-{
-	char max = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (max < arr[i]) max = arr[i];
-	}
-	return max;
-}
-
-int MinValue(int arr[], const int n)
-{
-	int min = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (min > arr[i]) min = arr[i];
-	}
-	return min;
-}
-
-double MinValue(double arr[], const int n)
-{
-	double min = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (min > arr[i]) min = arr[i];
-	}
-	return min;
-}
-
-float MinValue(float arr[], const int n)
-{
-	float min = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (min > arr[i]) min = arr[i];
-	}
-	return min;
-}
-
-char MinValue(char arr[], const int n)
-{
-	char min = arr[0];
-
-	for (int i = 1; i < n; i++)
-	{
-		if (min > arr[i]) min = arr[i];
-	}
-	return min;
-}
-
-void UnicRandom(int arr[], const int n, int minRand, int maxRand)
-{
-	for (int i = 0; i < n; i++)
-	{
-
-		arr[i] = minRand + rand()% maxRand;
-	}
-}
+//void Sort_2(int arr[], const int n);
